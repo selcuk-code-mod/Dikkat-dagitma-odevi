@@ -5,8 +5,8 @@ function here() {
   document.getElementById("counter").textContent = counter;
 }
 
-let audio = document.getElementById("rainMusic");
 function toggleMusic() {
+  let audio = document.getElementById("rainMusic");
   if (audio.paused) {
     audio.play();
   } else {
@@ -39,3 +39,30 @@ function toggle4Music() {
     audio.pause();
   }
 }
+let rainMusic = document.getElementById("rainMusic");
+
+let forestMusic = document.getElementById("forestMusic");
+let fireMusic = document.getElementById("fireMusic");
+let pianoMusic = document.getElementById("pianoMusic");
+
+rainMusic.addEventListener("play", function toggleMusic() {
+  forestMusic.pause();
+  fireMusic.pause();
+  pianoMusic.pause();
+});
+
+forestMusic.addEventListener("play", function toggle2Music() {
+  rainMusic.pause();
+  fireMusic.pause();
+  pianoMusic.pause();
+});
+fireMusic.addEventListener("play", function toggle3Music() {
+  forestMusic.pause();
+  rainMusic.pause();
+  pianoMusic.pause();
+});
+pianoMusic.addEventListener("play", function toggle4Music() {
+  forestMusic.pause();
+  rainMusic.pause();
+  fireMusic.pause();
+});
